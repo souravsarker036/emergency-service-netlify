@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency-Service-Netlify</title>
+
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="bg-[#F5FFF6]">
+
+  <!-- Navbar -->
+  <nav class="py-6 px-6 max-w-[1920px] mx-auto">
+    <div class="flex justify-between items-center">
+
+      <div class="flex items-center gap-5">
+        <img src="B12-A5-Emergency-Hotline/assets/logo.png" alt="logo" class="w-[50px] h-[50px]">
+        <h1 class="text-lg font-bold text-[#006747] leading-tight">Emergency <br> Service</h1>
+      </div>
+      <div class="flex justify-center">
+        <p class="bg-[#41ff6b]/10 h-[52px] w-[106px] flex justify-center items-center gap-2 rounded-[50px]">
+          <span id="heart">0</span>
+          <img src="B12-A5-Emergency-Hotline/assets/heart.png" alt="heart" class="w-[30px] h-[30px]">
+
+        </p>
+        <p class="bg-[#41ff6b]/10 h-[52px] w-[106px] flex justify-center items-center gap-2 rounded-[50px]">
+          <span id="credit">100</span> <img src="B12-A5-Emergency-Hotline/assets/coin.png" alt="coin"
+            class="w-[24px] h-[24px]">
+        </p>
+        <p
+          class="text-[16px] font-medium text-white bg-[#00A63E] h-[52px] w-[127px] flex justify-center items-center rounded-[50px] cursor-pointer hover:bg-green-700 transition">
+          Copy</p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="max-w-[1920px] mx-auto bg-gradient-to-r from-[#013122] via-[#006747] to-[#013223]">
+    <div class="flex flex-col justify-center items-center py-8 px-6 text-center">
+      <img src="B12-A5-Emergency-Hotline/assets/logo-dark.png" alt="logo-dark" class="w-[92px] h-[92px] mb-4">
+      <h1 class="text-[28px] md:text-[40px] font-bold text-white">Emergency Service Directory</h1>
+      <p class="text-[16px] md:text-[20px] text-white mt-2 max-w-3xl">
+        Government Emergency Services at Your Fingertip – A Project by Government of the People’s Republic of Bangladesh
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Section -->
+  <section class="px-6 py-6 max-w-[1920px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+      <!--All Cards-->
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- Card: 1 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">National Emergency Number</h3>
+                <p class="text-sm text-gray-500">National Emergency</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-pink-500"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">999</p>
+            <span class="inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full mt-1">All</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick="callAlert(1)"
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 2 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/police.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Police</h3>
+                <p class="text-sm text-gray-500">Emergency Police Service</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">100</p>
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full mt-1">Law & Order</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(2)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 3 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/fire-service.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Fire Service</h3>
+                <p class="text-sm text-gray-500">Fire & Rescue</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">199</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Fire</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(3)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 4 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/ambulance.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Ambulance Service</h3>
+                <p class="text-sm text-gray-500">Ambulance</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">1994-999999</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Health</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(4)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 5 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Women & Child Helpline</h3>
+                <p class="text-sm text-gray-500">Women & Child Helpline</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">109</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Help</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(5)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 6 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Anti-Corruption Helpline</h3>
+                <p class="text-sm text-gray-500">Anti-Corruption</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">106</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Govt.</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(6)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 7 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Electricity Helpline</h3>
+                <p class="text-sm text-gray-500">Electricity Outage</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">16216</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Electricity</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(7)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 8 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/brac.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Brac Helpline</h3>
+                <p class="text-sm text-gray-500">Brac</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">16445</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">NGO</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(8)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+        <!-- Card: 9 -->
+        <div class="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between h-[360px]">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-2">
+              <img src="B12-A5-Emergency-Hotline/assets/emergency.png" alt="icon" class="w-10 h-10">
+              <div>
+                <h3 class="font-bold text-lg">Bangladesh Railway Helpline</h3>
+                <p class="text-sm text-gray-500">Bangladesh Railway</p>
+              </div>
+            </div>
+            <i onclick={heartCount()} class="fa-solid fa-heart text-gray-400"></i>
+          </div>
+          <div class="mt-6">
+            <p class="text-xl font-bold">163</p>
+            <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mt-1">Travel</span>
+          </div>
+          <div class="flex justify-between mt-6">
+            <button
+              class="flex items-center justify-center gap-2 border border-gray-300 bg-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-gray-800 hover:text-white transition duration-200">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick={callAlert(9)}
+              class="flex items-center justify-center gap-2 bg-green-500 text-white px-3 py-2 rounded-lg w-[48%] h-[40px] hover:bg-green-700 transition duration-200">
+              <i class="fa-solid fa-phone"></i> Call
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- History Section -->
+      <div class="lg:col-span-1 bg-white rounded-[12px] shadow-md p-6 flex flex-col h-full">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-clock text-gray-600"></i>
+            <h2 class="font-semibold text-lg">Call History</h2>
+          </div>
+          <button
+            class="text-sm text-white flex items-center justify-center gap-1 w-[114px] h-[40px] bg-[#00A63E] rounded-[52px] hover:bg-green-700 transition duration-200">
+            Clear
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
