@@ -1,5 +1,15 @@
 const Heart=document.getElementById("heart");
 const Credit = document.getElementById("credit");
+const History = document.getElementById("history");
+const getCurrentTime = () => {
+  return new Date(Date.now()).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
+}
+
 let count = 0;
 const heartCount =()=>{
     count++;
@@ -8,9 +18,9 @@ const heartCount =()=>{
 }
 
 let credit = 100;
-
 let profile = "";
 let number = "";
+const HistoryList = [];
 
 const callAlert = (no) => {
     if(no==1){
@@ -21,6 +31,8 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -33,6 +45,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -45,6 +60,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -57,6 +75,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -69,6 +90,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -81,6 +105,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -93,6 +120,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -105,6 +135,9 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
@@ -117,8 +150,39 @@ const callAlert = (no) => {
 
             credit=credit-20;
             Credit.innerHTML=credit;
+
+            HistoryList.push({serviceName:profile, number:number, time:getCurrentTime()});
+            showHistory();
         } else{
             alert("You don't have sufficient coin...");
         }
     }
 } 
+
+
+
+const showHistory = () => {
+    let historyDiv = document.getElementById('history');
+    if (!HistoryList || HistoryList.length === 0) {
+        return;
+    }
+    let item = HistoryList[HistoryList.length - 1];
+
+    let itemDiv = document.createElement("div");
+    itemDiv.className = "flex justify-between items-center bg-[#F5FFF6] rounded p-2 my-2";
+
+    itemDiv.innerHTML = `
+        <div>
+            <h2>${item.serviceName}</h2>
+            <span>${item.number}</span>
+        </div>
+        <div>${item.time}</div>
+    `;
+    historyDiv.appendChild(itemDiv);
+};
+
+const clearHistory = () =>{
+    let historyDiv = document.getElementById('history');
+    historyDiv.innerHTML = "";
+    
+}
