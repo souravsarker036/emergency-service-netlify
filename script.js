@@ -173,7 +173,7 @@ const showHistory = () => {
 
     itemDiv.innerHTML = `
         <div>
-            <h2>${item.serviceName}</h2>
+            <h2 class="font-bold">${item.serviceName}</h2>
             <span>${item.number}</span>
         </div>
         <div>${item.time}</div>
